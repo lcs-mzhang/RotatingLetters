@@ -10,8 +10,31 @@ import Foundation
 
 // Get the user input
 var rawInput = readLine()
+var invalidCharacters = 0
 
-// Print out the input provided
-print("You said:")
-print(rawInput)
+//Make sure input is not nil
+guard let input = rawInput else
+{
+    //error
+    exit(9)
+}
 
+for individualCharacter in input
+{
+    switch individualCharacter
+    {
+    case "I", "O", "S", "H", "Z", "X", "N":
+        break
+    default:
+        invalidCharacters += 1
+    }
+}
+
+if invalidCharacters > 1
+{
+    print("YOUR THING IS WRONG")
+}
+else
+{
+    print("Your sign will work!")
+}
