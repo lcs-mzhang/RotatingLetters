@@ -9,17 +9,24 @@
 import Foundation
 
 // Get the user input
-var rawInput = readLine()
 var invalidCharacters = 0
+var validInput = ""
 
 //Make sure input is not nil
-guard let input = rawInput else
-{
-    //error
-    exit(9)
+while(true) {
+    guard let givenInput = readLine() else {
+        continue
+    }
+    if givenInput.count < 1 || givenInput.count > 30 || givenInput == " "
+    {
+        print("input less than 1 or more than 30")
+        continue
+    }
+    validInput = givenInput
+    break
 }
 
-for individualCharacter in input
+for individualCharacter in validInput
 {
     switch individualCharacter
     {
@@ -30,11 +37,11 @@ for individualCharacter in input
     }
 }
 
-if invalidCharacters > 1
+if invalidCharacters >= 1
 {
-    print("YOUR THING IS WRONG")
+    print("NO")
 }
 else
 {
-    print("Your sign will work!")
+    print("YES")
 }
