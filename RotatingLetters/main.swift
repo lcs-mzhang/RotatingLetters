@@ -16,7 +16,7 @@ var validInput = ""
 while(true) {
     guard let givenInput = readLine() else {
         continue
-    }
+    }    
     if givenInput.count < 1 || givenInput.count > 30 || givenInput == " "
     {
         print("input less than 1 or more than 30")
